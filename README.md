@@ -1,4 +1,4 @@
-# Rate! That! KITTEN!
+# [Rate! That! KITTEN!](https://rate-that-kitten.cyanne.codes)
 ### A cat pic rating application: an AI aided experiment 🐈
 Using the CaaS (Cats as a Service) [Cat Api](https://thecatapi.com/), bring in photos of kitties so a user can rate them based on various attributes. 
 
