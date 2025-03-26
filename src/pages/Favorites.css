@@ -1,0 +1,110 @@
+.favorites-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.favorites-grid button {
+    padding: 5px 10px;
+    background-color: pink;
+    color:  gray;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.favorites-grid button:hover {
+    background-color: purple;
+    color: white;
+}
+
+.descriptor-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.filter-sort-container {
+  display: flex; /* Use flexbox for side-by-side layout */
+  justify-content: center; /* Center the filter and sort sections */
+  margin-bottom: 1rem; /* Space below the filter and sort sections */
+}
+
+.filter-container, .sort-container {
+  margin: 0 1rem; /* Space around filter and sort sections */
+  padding: 1rem; /* Padding for better spacing */
+  background-color: #f8d3d3; /* Soft pastel pink */
+  border-radius: 10px; /* Rounded corners */
+  flex: 1; /* Allow the input container to grow */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sort-button {
+  font-weight: normal; /* Default font weight */
+  font-family: 'Playfair Display', serif;
+  background-color: #9b59b6; /* Purple background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.sort-button:hover {
+  background-color: #7e379b; /* Darker purple on hover */
+}
+
+.sort-button.active {
+  font-weight: bold; /* Bold font for active state */
+  background-color: #6a2c91; /* Deeper purple for active state */
+}
+
+.filter-container h2, .sort-container h2 {
+  font-size: 1.2rem; /* Smaller header size */
+  margin-bottom: 0.5rem; /* Space below the header */
+}
+
+.filter-container label, .sort-container button {
+  display: block; /* Stack labels and buttons vertically */
+  margin-bottom: 0.5rem; /* Space between items */
+  font-size: 0.9rem; /* Smaller font size for labels and buttons */
+}
+
+.toggle-filters-button, .unfavorite {
+  background-color: #9b59b6; /* Purple background */
+  font-family: 'Playfair Display', serif;
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Inline block */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.toggle-filters-button:hover, .unfavorite:hover {
+  background-color: #7e379b; /* Darker purple on hover */
+}
+
+.button-container {
+  display: flex; /* Use flexbox for side-by-side layout */
+  justify-content: center; /* Center the buttons */
+  margin-bottom: 1rem; /* Space below the button container */
+}
