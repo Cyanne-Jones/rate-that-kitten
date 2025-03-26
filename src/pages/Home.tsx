@@ -23,6 +23,7 @@ const Home = () => {
         const data = await response.json();
         setCatImage(data[0]);
       } catch (err) {
+        console.error('Error fetching cat image:', err);
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
         setLoading(false);
@@ -47,7 +48,7 @@ const Home = () => {
         <div className="cat-image-container">
           <img 
             src={catImage.url} 
-            alt="Adorable kitten" 
+            alt="Adorable cat or kitten"
             className="cat-image"
           />
         </div>
