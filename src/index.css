@@ -34,7 +34,7 @@ button {
 }
 
 h1 {
-  margin: 1px;
+  margin: 2rem;
 }
 
 @media (max-width: 768px) {
