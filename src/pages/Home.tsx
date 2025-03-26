@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Home.css';
 import useFavoriteStore from '../useFavoriteStore';
+import JSConfetti from 'js-confetti';
 
 interface CatImage {
   id: string;
@@ -18,7 +19,7 @@ const Home = () => {
   const [wouldPet, setWouldPet] = useState<boolean>(true);
   const [hasBeans, setHasBeans] = useState<boolean>(false);
   const [selectedAdjectives, setSelectedAdjectives] = useState<string[]>([]);
-
+  const confetti = new JSConfetti();
   useEffect(() => {
     const fetchCatImage = async () => {
       try {
@@ -51,6 +52,11 @@ const Home = () => {
     if (isFavorited) {
       removeFavorite(catImage!.url);
     } else {
+      confetti.addConfetti({
+        confettiColors: ['#FFB5C5', '#c580c5', '#FFC0CB', '#9b59b6'],
+        confettiRadius: 6,
+        confettiNumber: 500,
+      });
       addFavorite({ 
         url: catImage!.url, 
         cuteness, 
