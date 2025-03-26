@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Home.css';
+import useFavoriteStore from '../useFavoriteStore';
+import { Link } from 'react-router-dom';
 
 interface CatImage {
   id: string;
@@ -12,6 +14,7 @@ const Home = () => {
   const [catImage, setCatImage] = useState<CatImage | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { favorites, addFavorite, removeFavorite } = useFavoriteStore();
 
   useEffect(() => {
     const fetchCatImage = async () => {
@@ -33,6 +36,16 @@ const Home = () => {
     fetchCatImage();
   }, []);
 
+  const isFavorited = catImage ? favorites.includes(catImage.url) : false;
+
+  const handleFavoriteToggle = () => {
+    if (isFavorited) {
+      removeFavorite(catImage!.url);
+    } else {
+      addFavorite(catImage!.url);
+    }
+  };
+
   if (loading) {
     return <div className="loading">Loading adorable kitten...</div>;
   }
@@ -48,11 +61,18 @@ const Home = () => {
         <div className="cat-image-container">
           <img 
             src={catImage.url} 
-            alt="Adorable cat or kitten"
+            alt="Adorable kitten" 
             className="cat-image"
           />
+          <button 
+            onClick={handleFavoriteToggle} 
+            className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
+          >
+            {isFavorited ? '❤️' : '🤍'}
+          </button>
         </div>
       )}
+      <Link to="/favorites" className="favorites-link">View Favorites</Link>
     </div>
   );
 };

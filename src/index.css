@@ -1,9 +1,9 @@
 :root {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Playfair Display', serif;
   line-height: 1.5;
   font-weight: 400;
   --primary-pink: #FFB5C5;
-  --secondary-purple: #E6E6FA;
+  --secondary-purple: #DDA0DD;
   --accent-pink: #FFC0CB;
   --text-color: #4A4A4A;
 }

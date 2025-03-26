@@ -1,32 +1,38 @@
 {
-  "hash": "98729d61",
+  "hash": "72eaa9a4",
   "configHash": "0c0d247f",
-  "lockfileHash": "35c23c94",
-  "browserHash": "10011c59",
+  "lockfileHash": "f334d3df",
+  "browserHash": "1c662bbb",
   "optimized": {
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "4d3c9604",
+      "fileHash": "2cca9c27",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "4380f241",
+      "fileHash": "f93ec9e4",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "acff7ad0",
+      "fileHash": "622c700f",
       "needsInterop": false
     },
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "41ab862b",
+      "fileHash": "09cbb7a9",
       "needsInterop": true
+    },
+    "zustand": {
+      "src": "../../node_modules/zustand/esm/index.mjs",
+      "file": "zustand.js",
+      "fileHash": "44beebb2",
+      "needsInterop": false
     }
   },
   "chunks": {
