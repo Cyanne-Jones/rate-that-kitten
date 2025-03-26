@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './Home.css';
 import useFavoriteStore from '../useFavoriteStore';
 import JSConfetti from 'js-confetti';
+import { Link } from 'react-router-dom';
 
 interface CatImage {
   id: string;
@@ -177,7 +178,7 @@ const Home = () => {
         Request Another Cat
       </button>
       {favorites.length > 0 && <button className="gray-button">
-        <a href="/favorites">View Favorites</a>
+        <Link to="/favorites">View Favorites</Link>
       </button>}
     </div>
   );

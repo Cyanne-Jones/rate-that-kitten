@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './Favorites.css';
 import useFavoriteStore from '../useFavoriteStore';
+import { Link } from 'react-router-dom';
 
 const Favorites = () => {
   const { favorites, removeFavorite } = useFavoriteStore();
@@ -150,7 +151,7 @@ const Favorites = () => {
       {sortedFavorites.length === 0 ? (
             <p>No favorite kittens yet!</p>
         ) : (<button className="gray-button">
-        <a href="/">Back to Home</a>
+        <Link to="/">Back to Home</Link>
       </button>)}
       
     </div>

@@ -8,6 +8,7 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
+          <Route path="*" element={<p>Page not found!</p>} />
           <Route path="/" element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
