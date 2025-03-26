@@ -229,3 +229,8 @@ h1 {
 .adjective-checkbox {
   margin-right: 0.5rem; /* Space between checkbox and label */
 }
+
+.request-another-cat-active {
+  animation: pulse 1s infinite;
+  background-color: rgba(155, 89, 182, 0.5);
+}

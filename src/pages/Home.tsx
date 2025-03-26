@@ -40,6 +40,13 @@ const Home = () => {
     fetchCatImage();
   }, []);
 
+  const resetState = () => {
+    setCuteness(5);
+    setWouldPet(true);
+    setHasBeans(false);
+    setSelectedAdjectives([]);
+  }
+
   const isFavorited = catImage ? favorites.some(fav => fav.url === catImage.url) : false;
 
   const handleAdjectiveChange = (adjective: string) => {
@@ -51,6 +58,7 @@ const Home = () => {
   const handleFavoriteToggle = () => {
     if (isFavorited) {
       removeFavorite(catImage!.url);
+      resetState();
     } else {
       confetti.addConfetti({
         confettiColors: ['#FFB5C5', '#c580c5', '#FFC0CB', '#9b59b6'],
@@ -64,6 +72,7 @@ const Home = () => {
         hasBeans, 
         adjectives: selectedAdjectives 
       });
+      resetState();
     }
   };
 
@@ -163,7 +172,7 @@ const Home = () => {
       )}
       <button 
         onClick={fetchNewCatImage} 
-        className="gray-button"
+        className={`${isFavorited && 'request-another-cat-active'} gray-button`}
       >
         Request Another Cat
       </button>
