@@ -107,7 +107,16 @@ const Home = () => {
               onChange={(e) => setCuteness(Number(e.target.value))} 
               className="cuteness-slider"
             />
+
+            <button 
+              onClick={handleFavoriteToggle} 
+              className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
+            >
+              {isFavorited ? '❤️' : '🤍'}
+            </button>
           </div>
+
+          
 
           <div className="input-container">
             <h2>Would You Pet?</h2>
@@ -146,12 +155,6 @@ const Home = () => {
           </div>
         </div>
       )}
-      <button 
-        onClick={handleFavoriteToggle} 
-        className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
-      >
-        {isFavorited ? '❤️' : '🤍'}
-      </button>
       <button 
         onClick={fetchNewCatImage} 
         className="gray-button"

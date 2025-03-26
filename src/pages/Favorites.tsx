@@ -31,13 +31,18 @@ const Favorites = () => {
     <div className="favorites-container">
       <h1>Your Favorite Kittens</h1>
 
-      {/* Toggle Button for Filters */}
-      <button 
-        className="toggle-filters-button" 
-        onClick={() => setShowFilters(prev => !prev)}
-      >
-        {showFilters ? 'Hide Filters' : 'Show Filters'}
-      </button>
+      {/* Buttons for Navigation and Toggle Filters */}
+      <div className="button-container">
+        {sortedFavorites.length > 0 && <button 
+          className="toggle-filters-button" 
+          onClick={() => setShowFilters(prev => !prev)}
+        >
+          {showFilters ? 'Hide Filters' : 'Show Filters'}
+        </button>}
+        <button className="gray-button">
+          <a href="/">Back to Home</a>
+        </button>
+      </div>
 
       {/* Filter and Sort Options */}
       {showFilters && (
@@ -110,14 +115,24 @@ const Favorites = () => {
 
           <div className="sort-container">
             <h2>Sort by Cuteness:</h2>
-            <button className="sort-button" onClick={() => setSortOrder('asc')}>Low to High</button>
-            <button className="sort-button" onClick={() => setSortOrder('desc')}>High to Low</button>
+            <button 
+              className={`sort-button ${sortOrder === 'asc' ? 'active' : ''}`} 
+              onClick={() => setSortOrder('asc')}
+            >
+              Low to High
+            </button>
+            <button 
+              className={`sort-button ${sortOrder === 'desc' ? 'active' : ''}`} 
+              onClick={() => setSortOrder('desc')}
+            >
+              High to Low
+            </button>
           </div>
         </div>
       )}
 
       <div className="favorites-grid">
-        {sortedFavorites.length > 0 ? (
+        {sortedFavorites.length > 0 && (
           sortedFavorites.map((favorite, index) => (
             <div key={index} className="cat-image-container">
               <img src={favorite.url} alt={`Favorite kitten ${index + 1}`} className="cat-image" />
@@ -125,17 +140,19 @@ const Favorites = () => {
               <p><span className="descriptor-label">Would Pet:</span> {favorite.wouldPet ? 'Yes' : 'No'}</p>
               <p><span className="descriptor-label">Has Beans:</span> {favorite.hasBeans ? 'Yes' : 'No'}</p>
               <p><span className="descriptor-label">Descriptors:</span> {favorite.adjectives?.join(', ') || 'None'}</p>
-              <button onClick={() => removeFavorite(favorite.url)}>Unfavorite</button>
+              <button className="unfavorite" onClick={() => removeFavorite(favorite.url)}>Unfavorite</button>
             </div>
           ))
-        ) : (
-          <p>No favorite kittens yet!</p>
         )}
       </div>
-      <button className="gray-button">
+      {sortedFavorites.length === 0 ? (
+            <p>No favorite kittens yet!</p>
+        ) : (<button className="gray-button">
         <a href="/">Back to Home</a>
-      </button>
+      </button>)}
+      
     </div>
+    
   );
 };
 

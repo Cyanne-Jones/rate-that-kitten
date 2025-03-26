@@ -78,7 +78,7 @@ h1 {
 .favorite-button {
   background: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: 4rem;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, color 0.3s ease;
   color: #777; /* Default heart color */
@@ -86,7 +86,7 @@ h1 {
 }
 
 .favorite-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.5);
 }
 
 .favorite-button.favorited {
@@ -105,8 +105,6 @@ h1 {
 
 .gray-button {
   display: inline-block;
-  margin-top: 1rem;
-  text-decoration: none;
   color: #4A4A4A;
   font-weight: bold;
   font-family: 'Playfair Display', serif;
@@ -123,14 +121,11 @@ h1 {
   color: #fff;
 }
 
-.gray-button a {
-  text-decoration: none;
-  color: #4A4A4A;
-}
-
-.gray-button a:hover {
+.gray-button:hover a {
   color: #fff;
 }
+
+
 
 .cuteness-slider {
   margin: 1rem 0;
@@ -194,7 +189,6 @@ h1 {
   display: flex; /* Use flexbox for side-by-side layout */
   align-items: flex-start; /* Align items at the start */
   justify-content: space-between; /* Space between items */
-  margin-top: 2rem; /* Space above the container */
 }
 
 .cat-image-container {
@@ -207,6 +201,7 @@ h1 {
   border-radius: 10px; /* Rounded corners */
   padding: 1.5rem; /* Padding around the container */
   flex: 1; /* Allow the input container to grow */
+  margin-bottom: 1rem;
 }
 
 .adjective-checkbox {

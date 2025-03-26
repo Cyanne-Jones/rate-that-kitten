@@ -20,3 +20,18 @@ body {
   background: linear-gradient(135deg, var(--secondary-purple), var(--primary-pink));
   color: var(--text-color);
 } 
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  color: #fff;
+}
+
+button {
+  height: 40px;
+}
+
+
