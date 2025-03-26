@@ -1,14 +1,12 @@
 .home-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 h1 {
   color: var(--text-color);
   font-size: 3.5rem;
-  margin-bottom: 2rem;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   letter-spacing: -1px;
@@ -74,7 +72,7 @@ h1 {
   font-weight: 500;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
-
+ 
 .favorite-button {
   background: transparent;
   border: none;
@@ -87,6 +85,19 @@ h1 {
 
 .favorite-button:hover {
   transform: scale(1.5);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .favorite-button.favorited {
@@ -125,8 +136,6 @@ h1 {
   color: #fff;
 }
 
-
-
 .cuteness-slider {
   margin: 1rem 0;
   width: 100%;
@@ -138,7 +147,7 @@ h1 {
   outline: none;
 }
 
-.cuteness-slider::-webkit-slider-thumb {
+.cuteness-slider::-webkit-slider-thumb{
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
@@ -157,6 +166,12 @@ h1 {
   box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
   cursor: pointer;
 }
+
+.cuteness-slider::-webkit-slider-thumb:hover {
+  background: #502162;
+  transform: scale(1.5);
+  transition: transform 0.2s ease-in-out;
+} 
 
 .cuteness-label {
   font-size: 1.2rem;
