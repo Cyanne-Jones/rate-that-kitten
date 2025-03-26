@@ -10,6 +10,7 @@ const Favorites = () => {
   const [filterWouldPet, setFilterWouldPet] = useState<string | null>(null);
   const [filterHasBeans, setFilterHasBeans] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<string>('asc'); // 'asc' for low to high, 'desc' for high to low
+  const [showFilters, setShowFilters] = useState<boolean>(true); // State to toggle filter visibility
 
   // Filter and sort favorites
   const filteredFavorites = favorites.filter(favorite => {
@@ -30,80 +31,90 @@ const Favorites = () => {
     <div className="favorites-container">
       <h1>Your Favorite Kittens</h1>
 
-      {/* Filter and Sort Options */}
-      <div className="filter-sort-container">
-        <div className="filter-container">
-          <h2>Filter by:</h2>
-          <div className="radio-container">
-            <div id="wouldPet">
-              <h4>Would Pet:</h4>
-              <label>
-                <input 
-                  type="radio" 
-                  name="wouldPet" 
-                  value="yes" 
-                  checked={filterWouldPet === 'yes'} 
-                  onChange={() => setFilterWouldPet('yes')} 
-                /> Yes
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="wouldPet" 
-                  value="no" 
-                  checked={filterWouldPet === 'no'} 
-                  onChange={() => setFilterWouldPet('no')} 
-                /> No
-              </label>
-                <label>
-                <input 
-                  type="radio" 
-                  name="wouldPet" 
-                  value="" 
-                  checked={filterWouldPet === null} 
-                  onChange={() => setFilterWouldPet(null)} 
-                /> All
-              </label>
-            </div>
-            <div id="hasBeans">
-              <h4>Has Beans:</h4>
-              <label>
-                <input 
-                  type="radio" 
-                  name="hasBeans" 
-                  value="yes" 
-                  checked={filterHasBeans === 'yes'} 
-                  onChange={() => setFilterHasBeans('yes')} 
-                /> Yes
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="hasBeans" 
-                  value="no" 
-                  checked={filterHasBeans === 'no'} 
-                  onChange={() => setFilterHasBeans('no')} 
-                /> No
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="hasBeans" 
-                  value="" 
-                  checked={filterHasBeans === null} 
-                  onChange={() => setFilterHasBeans(null)} 
-                /> All
-              </label>
-            </div>
-          </div >
-        </div>
+      {/* Toggle Button for Filters */}
+      <button 
+        className="toggle-filters-button" 
+        onClick={() => setShowFilters(prev => !prev)}
+      >
+        {showFilters ? 'Hide Filters' : 'Show Filters'}
+      </button>
 
-      <div className="sort-container">
-        <h2>Sort by Cuteness:</h2>
-        <button className="sort-button" onClick={() => setSortOrder('asc')}>Low to High</button>
-        <button className="sort-button" onClick={() => setSortOrder('desc')}>High to Low</button>
-      </div>
-    </div>
+      {/* Filter and Sort Options */}
+      {showFilters && (
+        <div className="filter-sort-container">
+          <div className="filter-container">
+            <h2>Filter by:</h2>
+            <div className="radio-container">
+              <div id="wouldPet">
+                <h4>Would Pet:</h4>
+                <label>
+                  <input 
+                    type="radio" 
+                    name="wouldPet" 
+                    value="yes" 
+                    checked={filterWouldPet === 'yes'} 
+                    onChange={() => setFilterWouldPet('yes')} 
+                  /> Yes
+                </label>
+                <label>
+                  <input 
+                    type="radio" 
+                    name="wouldPet" 
+                    value="no" 
+                    checked={filterWouldPet === 'no'} 
+                    onChange={() => setFilterWouldPet('no')} 
+                  /> No
+                </label>
+                <label>
+                  <input 
+                    type="radio" 
+                    name="wouldPet" 
+                    value="" 
+                    checked={filterWouldPet === null} 
+                    onChange={() => setFilterWouldPet(null)} 
+                  /> All
+                </label>
+              </div>
+              <div id="hasBeans">
+                <h4>Has Beans:</h4>
+                <label>
+                  <input 
+                    type="radio" 
+                    name="hasBeans" 
+                    value="yes" 
+                    checked={filterHasBeans === 'yes'} 
+                    onChange={() => setFilterHasBeans('yes')} 
+                  /> Yes
+                </label>
+                <label>
+                  <input 
+                    type="radio" 
+                    name="hasBeans" 
+                    value="no" 
+                    checked={filterHasBeans === 'no'} 
+                    onChange={() => setFilterHasBeans('no')} 
+                  /> No
+                </label>
+                <label>
+                  <input 
+                    type="radio" 
+                    name="hasBeans" 
+                    value="" 
+                    checked={filterHasBeans === null} 
+                    onChange={() => setFilterHasBeans(null)} 
+                  /> All
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className="sort-container">
+            <h2>Sort by Cuteness:</h2>
+            <button className="sort-button" onClick={() => setSortOrder('asc')}>Low to High</button>
+            <button className="sort-button" onClick={() => setSortOrder('desc')}>High to Low</button>
+          </div>
+        </div>
+      )}
 
       <div className="favorites-grid">
         {sortedFavorites.length > 0 ? (
