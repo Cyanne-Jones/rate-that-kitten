@@ -8,7 +8,6 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
   margin: 2rem 0;
-  
 }
 
 .favorites-grid button {
@@ -34,7 +33,7 @@
 
 .filter-sort-container {
   display: flex; /* Use flexbox for side-by-side layout */
-justify-self: start;
+  justify-content: center; /* Center the filter and sort sections */
   margin-bottom: 1rem; /* Space below the filter and sort sections */
 }
 
@@ -43,6 +42,8 @@ justify-self: start;
   padding: 1rem; /* Padding for better spacing */
   background-color: #f8d3d3; /* Soft pastel pink */
   border-radius: 10px; /* Rounded corners */
+  flex: 1; /* Allow the input container to grow */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .radio-container {

@@ -115,6 +115,7 @@ const Favorites = () => {
 
           <div className="sort-container">
             <h2>Sort by Cuteness:</h2>
+            <div className="radio-container">
             <button 
               className={`sort-button ${sortOrder === 'asc' ? 'active' : ''}`} 
               onClick={() => setSortOrder('asc')}
@@ -127,6 +128,7 @@ const Favorites = () => {
             >
               High to Low
             </button>
+            </div>
           </div>
         </div>
       )}
