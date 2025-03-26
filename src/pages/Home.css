@@ -101,3 +101,11 @@ h1 {
     text-shadow: 0 0 20px rgba(233, 30, 99, 1), 0 0 30px rgba(233, 30, 99, 0.7);
   }
 } 
+
+.back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #4A4A4A;
+  font-weight: bold;
+}

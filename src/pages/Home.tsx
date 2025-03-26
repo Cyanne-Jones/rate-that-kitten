@@ -72,7 +72,7 @@ const Home = () => {
           </button>
         </div>
       )}
-      <Link to="/favorites" className="favorites-link">View Favorites</Link>
+      <Link to="/favorites" className="back-link">View Favorites</Link>
     </div>
   );
 };
