@@ -43,14 +43,14 @@ h1 {
   right: 0;
   bottom: 0;
   border-radius: 15px;
-  background: linear-gradient(45deg, 
+  /* background: linear-gradient(45deg, 
     rgba(255, 215, 0, 0.3) 0%,
     rgba(255, 215, 0, 0) 20%,
     rgba(255, 215, 0, 0.3) 40%,
     rgba(255, 215, 0, 0) 60%,
     rgba(255, 215, 0, 0.3) 80%,
     rgba(255, 215, 0, 0) 100%
-  );
+  ); */
   pointer-events: none;
 }
 
@@ -206,16 +206,19 @@ h1 {
   justify-content: space-between; /* Space between items */
 }
 
+.cat-image-container {
+  margin-right: 2rem; /* Space between image and input container */
+  flex: 1; /* Allow the image container to grow */
+}
+
 @media (max-width: 768px) {
   .cat-image-input-container {
    flex-direction: column;
    align-items: center;
   }
-}
-
-.cat-image-container {
-  margin-right: 2rem; /* Space between image and input container */
-  flex: 1; /* Allow the image container to grow */
+  .cat-image-container {
+    margin-right: 0;
+  }
 }
 
 .input-container {
