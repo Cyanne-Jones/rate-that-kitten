@@ -1,5 +1,5 @@
 // src/pages/Favorites.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Favorites.css';
 import useFavoriteStore from '../useFavoriteStore';
 
