@@ -34,8 +34,6 @@ This was a great learning experience
 
 # Readme as written by the AI (edited gently for correctness)
 
-# Rate That Kitten
-
 ## Overview
 
 "Rate That Kitten" is a fun web application that allows users to view adorable cat images, rate their cuteness, and save their favorite kittens with additional descriptors. Users can also filter and sort their favorite kittens based on various criteria.
