@@ -18,6 +18,7 @@ Keep adding functionality until it gets too unweildy and breaks, take note of tr
 ### The bad:
 - No .gitignore, pushed node-modules (oof!)
 - Installed create vite react-ts twice for two src files (yikes!)
+- Outdated/incorrect (but effective) use of Zustand persistent local store
 - Waaaaaay overengineered styling. These CSS files are giant and kinda gross to work in
 - Would overengineer solutions if I didn't keep my requests as strictly scoped as possible.
 
