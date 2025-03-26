@@ -10,7 +10,7 @@ const Favorites = () => {
   const [filterWouldPet, setFilterWouldPet] = useState<string | null>(null);
   const [filterHasBeans, setFilterHasBeans] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<string>('asc'); // 'asc' for low to high, 'desc' for high to low
-  const [showFilters, setShowFilters] = useState<boolean>(true); // State to toggle filter visibility
+  const [showFilters, setShowFilters] = useState<boolean>(false); // State to toggle filter visibility
 
   // Filter and sort favorites
   const filteredFavorites = favorites.filter(favorite => {
