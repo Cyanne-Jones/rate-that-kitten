@@ -7,7 +7,7 @@ Keep adding functionality until it gets too unweildy and breaks, take note of tr
 
 
 ## What we're workin with so far  💅🏼
-![Screenshot 2025-03-26 at 4 26 23 PM](https://github.com/user-attachments/assets/db57b5fd-4ea2-4512-973c-7487bc1e7a5b)
+![Screenshot 2025-03-26 at 4 41 04 PM](https://github.com/user-attachments/assets/637ca2d6-f781-4c37-b37f-52889ba086fd)
 
 ### The good: 
 - Quick general file structure
