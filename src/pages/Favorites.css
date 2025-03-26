@@ -25,3 +25,8 @@
     background-color: purple;
     color: white;
 }
+
+.descriptor-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}

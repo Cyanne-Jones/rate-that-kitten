@@ -82,6 +82,7 @@ h1 {
   cursor: pointer;
   transition: transform 0.2s ease-in-out, color 0.3s ease;
   color: #777; /* Default heart color */
+  margin: 10px;
 }
 
 .favorite-button:hover {
@@ -102,10 +103,112 @@ h1 {
   }
 } 
 
-.back-link {
+.gray-button {
   display: inline-block;
   margin-top: 1rem;
   text-decoration: none;
   color: #4A4A4A;
   font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 0 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.gray-button:hover {
+  background-color: #4A4A4A;
+  color: #fff;
+}
+
+.gray-button a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+.gray-button a:hover {
+  color: #fff;
+}
+
+.cuteness-slider {
+  margin: 1rem 0;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  background: #df72f0;
+  border-radius: 5px;
+  outline: none;
+}
+
+.cuteness-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #9b59b6;
+  box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+  cursor: pointer;
+}
+
+.cuteness-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #9b59b6;
+  box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+  cursor: pointer;
+}
+
+.cuteness-label {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.input-container {
+  background-color: #f8d3d3; /* Soft pastel pink */
+  border-radius: 10px; /* Rounded corners */
+  padding: 1.5rem; /* Padding around the container */
+  margin-top: 1rem; /* Space above the container */
+}
+
+.input-container h2 {
+  font-size: 1.5rem; /* Large header size */
+  margin-bottom: 0.5rem; /* Space below the header */
+}
+
+.input-container div {
+  margin-bottom: 1rem; /* Space between input sections */
+}
+
+.input-container label {
+  display: block; /* Stack labels vertically */
+  margin-bottom: 0.5rem; /* Space between labels */
+}
+
+.cat-image-input-container {
+  display: flex; /* Use flexbox for side-by-side layout */
+  align-items: flex-start; /* Align items at the start */
+  justify-content: space-between; /* Space between items */
+  margin-top: 2rem; /* Space above the container */
+}
+
+.cat-image-container {
+  margin-right: 2rem; /* Space between image and input container */
+  flex: 1; /* Allow the image container to grow */
+}
+
+.input-container {
+  background-color: #f8d3d3; /* Soft pastel pink */
+  border-radius: 10px; /* Rounded corners */
+  padding: 1.5rem; /* Padding around the container */
+  flex: 1; /* Allow the input container to grow */
+}
+
+.adjective-checkbox {
+  margin-right: 0.5rem; /* Space between checkbox and label */
 }
