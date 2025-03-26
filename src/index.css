@@ -17,7 +17,6 @@
 body {
   min-width: 320px;
   min-height: 100vh;
-  
   color: var(--text-color);
 } 
 
@@ -36,6 +35,12 @@ button {
 
 h1 {
   margin: 1px;
+}
+
+@media (max-width: 768px) {
+  button {
+    height: auto;
+  }
 }
 
 

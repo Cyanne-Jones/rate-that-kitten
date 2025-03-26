@@ -161,9 +161,9 @@ const Home = () => {
       >
         Request Another Cat
       </button>
-      <button className="gray-button">
+      {favorites.length > 0 && <button className="gray-button">
         <a href="/favorites">View Favorites</a>
-      </button>
+      </button>}
     </div>
   );
 };
