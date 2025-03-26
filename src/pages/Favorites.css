@@ -30,3 +30,47 @@
   font-weight: bold;
   margin-right: 0.5rem;
 }
+
+.filter-sort-container {
+  display: flex; /* Use flexbox for side-by-side layout */
+justify-self: start;
+  margin-bottom: 1rem; /* Space below the filter and sort sections */
+}
+
+.filter-container, .sort-container {
+  margin: 0 1rem; /* Space around filter and sort sections */
+  padding: 1rem; /* Padding for better spacing */
+  background-color: #f8d3d3; /* Soft pastel pink */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sort-button {
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  background-color: #9b59b6;
+  border-radius: 10px; /* Rounded corners */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.sort-button:hover {
+  background-color: #7e379b;
+}
+.filter-container h2, .sort-container h2 {
+  font-size: 1.2rem; /* Smaller header size */
+  margin-bottom: 0.5rem; /* Space below the header */
+}
+
+.filter-container label, .sort-container button {
+  display: block; /* Stack labels and buttons vertically */
+  margin-bottom: 0.5rem; /* Space between items */
+  font-size: 0.9rem; /* Smaller font size for labels and buttons */
+}
