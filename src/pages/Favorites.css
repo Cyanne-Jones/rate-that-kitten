@@ -176,6 +176,7 @@
   margin-top: 1rem; /* Space above the buttons */
   display: flex; /* Use flexbox for side-by-side layout */
   justify-content: center; /* Center the buttons */
+  color: #f0e9e9;
 }
 
 .edit-form .sort-button {
