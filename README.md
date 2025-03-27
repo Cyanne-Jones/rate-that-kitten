@@ -29,3 +29,76 @@ I wanna think this was like me pair programming with a junior eng driving as I n
 As for the experience, I found myself trying to understand the code written by this thing most of the time so I could get in there and fix the bugs. This tracks with reviewing a junior's code. 
 I would like to get this app to the point that it becomes truly unmaintainable though, and see what it's like to run better models also. 
 This was a great learning experience
+
+
+
+# Readme as written by the AI (edited gently for correctness)
+
+## Overview
+
+"Rate That Kitten" is a fun web application that allows users to view adorable cat images, rate their cuteness, and save their favorite kittens with additional descriptors. Users can also filter and sort their favorite kittens based on various criteria.
+
+## Features
+
+- View random cat images from The Cat API.
+- Rate each cat's cuteness on a scale of 0 to 10.
+- Indicate whether you would pet the cat and if it has beans.
+- Add descriptors to your favorite kittens.
+- Filter favorites by "Would Pet?" and "Has Beans?" options.
+- Sort favorites by cuteness rating (low to high or high to low).
+- Request a new cat image at any time.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm (Node Package Manager)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/rate-that-kitten.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd rate-that-kitten
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+1. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+2. Open your web browser and navigate to `http://localhost:5173` to view the application.
+
+### Using the Application
+
+1. **Rate a Kitten**: When the app loads, a random kitten image will be displayed. You can rate its cuteness using the slider.
+
+2. **Would You Pet?**: Select "Yes" or "No" to indicate if you would pet the kitten.
+
+3. **Has Beans?**: Select "Yes" or "No" to indicate if the kitten has beans.
+
+4. **Descriptors**: Check any descriptors that apply to the kitten.
+
+5. **Add to Favorites**: Click the heart button to add the kitten to your favorites. A confetti animation will play upon successfully adding a favorite.
+
+6. **Request Another Cat**: Click the "Request Another Cat" button to fetch a new random kitten image.
+
+7. **View Favorites**: Click the "View Favorites" button to navigate to the favorites page, where you can see all your saved kittens.
+
+8. **Filter and Sort Favorites**: On the favorites page, you can filter your favorites by "Would Pet?" and "Has Beans?" options. You can also sort your favorites by cuteness rating (low to high or high to low).
