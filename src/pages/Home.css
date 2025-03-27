@@ -279,4 +279,11 @@ h1 {
   border-radius: 5px; /* Rounded corners */
   padding: 0.5rem; /* Padding */
   margin-right: 0.5rem; /* Space between input and button */
+  font-family: 'Playfair Display', serif;
+}
+
+.adjective-input:disabled {
+  background-color: #e0e0e0; /* Gray background */
+  color: #666666; /* Dark gray text */
+  border: 1px solid #bdbdbd; /* Light gray border */
 }
