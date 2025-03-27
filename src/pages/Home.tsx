@@ -187,7 +187,7 @@ const Home = () => {
 
             <h2>Descriptors:</h2>
             <div>
-              {["Babiest baby", "Certified Thicc Chungus", "That's a damn fine cat", "Let me love you"].map((adjective) => (
+              {["Babiest baby", "Certified Thicc Chungus™", "That's a damn fine cat", "Let me love you", "Freaky & Fuzzy"].map((adjective) => (
                 <label key={adjective}>
                   <input 
                     type="checkbox" 
