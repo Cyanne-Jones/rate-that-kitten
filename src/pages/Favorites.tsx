@@ -95,6 +95,11 @@ const Favorites = () => {
   };
 
   const allDescriptors = [...new Set(favorites.flatMap(favorite => favorite.adjectives || []))];
+  const descriptorCounts = allDescriptors.reduce((counts: { [key: string]: number }, descriptor) => {
+    counts[descriptor] = favorites.filter(favorite => favorite.adjectives?.includes(descriptor)).length;
+    return counts;
+  }, {});
+
 
   return (
     <div className="favorites-container">
@@ -192,7 +197,7 @@ const Favorites = () => {
                     checked={selectedDescriptors.includes(descriptor)}
                     onChange={() => handleDescriptorChange(descriptor)}
                   />
-                  {descriptor}
+                  {descriptor} ({descriptorCounts[descriptor]})
                 </label>
               ))}
             </div>
