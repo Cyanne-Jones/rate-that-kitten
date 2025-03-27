@@ -1,3 +1,5 @@
+@import url('./Home.css');
+
 .favorites-container {
   text-align: center;
   padding: 2rem;
@@ -99,6 +101,10 @@
   transition: background-color 0.3s; /* Transition effect */
 }
 
+.unfavorite {
+  background-color: red; /* Pink background */
+}
+
 .toggle-filters-button:hover, .unfavorite:hover {
   background-color: #7e379b; /* Darker purple on hover */
 }
@@ -107,4 +113,75 @@
   display: flex; /* Use flexbox for side-by-side layout */
   justify-content: center; /* Center the buttons */
   margin-bottom: 1rem; /* Space below the button container */
+}
+
+.edit-container {
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0; 
+  background-color: rgba(131, 131, 131, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-form {
+  background-color: #f8d3d3;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.edit-form img {
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .edit-form {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+.edit-form h3 {
+  font-size: 1.5rem; /* Increased font size */
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700; /* Added font weight */
+  color: #4A4A4A; /* Added color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Added text shadow */
+}
+
+.edit-form h4 {
+  font-size: 1rem; /* Smaller font size */
+  font-weight: 700;
+}
+
+.edit-form label {
+  display: block; /* Stack labels vertically */
+  margin-bottom: 0.5rem; /* Space between labels */
+  font-size: 0.9rem; /* Smaller font size for labels */
+}
+
+.edit-form input[type="number"],
+.edit-form input[type="checkbox"] {
+  margin-right: 0.5rem; /* Space between input and label */
+}
+
+.edit-form .button-container {
+  margin-top: 1rem; /* Space above the buttons */
+  display: flex; /* Use flexbox for side-by-side layout */
+  justify-content: center; /* Center the buttons */
+}
+
+.edit-form .sort-button {
+  margin: 0 0.5rem; /* Space around the buttons */
+}
+
+.edit-form .adjective-checkbox {
+  margin-right: 0.3rem;
 }
