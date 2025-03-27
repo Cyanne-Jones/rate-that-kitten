@@ -73,7 +73,7 @@ const Favorites = () => {
 
     setEditedValues(prev => ({
       ...prev,
-      [name]: type === 'number' ? Number(value) : type === 'checkbox' ? checked : value,
+      [name]: type === 'number' || name === 'cuteness' ? Number(value) : type === 'checkbox' ? checked : value,
     }));
   };
 
@@ -208,6 +208,7 @@ const Favorites = () => {
             </div>
           ))
         )}
+        
       </div>
       {editingFavorite && (
         <div className="edit-container">
@@ -215,50 +216,53 @@ const Favorites = () => {
             <h3>Edit Rating</h3>
             <img src={editingFavorite} alt={`Favorite kitten`} className="cat-image" />
             <label>
-            Cuteness:
-            <input
-              type="number"
-              name="cuteness"
-              value={editedValues.cuteness}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Would Pet:
-            <input
-              type="checkbox"
-              name="wouldPet"
-              checked={editedValues.wouldPet}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Has Beans:
-            <input
-              type="checkbox"
-              name="hasBeans"
-              checked={editedValues.hasBeans}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Descriptors:
-            {["Babiest baby", "Certified Thicc Chungus", "That's a damn fine cat", "Let me love you"].map((adjective) => (
-              <label>
-                <input
-                  type="checkbox"
-                  className="adjective-checkbox"
-                  checked={editedValues.adjectives?.includes(adjective)}
-                  onChange={() => handleAdjectiveChange(adjective)}
-                />
-                {adjective}
-              </label>
-            ))}
-          </label>
-          <div className="button-container">
-            <button className="sort-button" onClick={handleSaveClick}>Save</button>
-            <button className="sort-button" onClick={handleCancelClick}>Cancel</button>
-          </div>
+              <h4>Cuteness:</h4>
+              <input
+                type="range"
+                name="cuteness"
+                min="0"
+                max="10"
+                value={editedValues.cuteness}
+                onChange={handleInputChange}
+                className="cuteness-slider"
+              />
+            </label>
+            <label>
+              <h4>Would Pet:</h4>
+              <input
+                type="checkbox"
+                name="wouldPet"
+                checked={editedValues.wouldPet}
+                onChange={handleInputChange}
+              />
+            </label>
+            <label>
+              <h4>Has Beans:</h4>
+              <input
+                type="checkbox"
+                name="hasBeans"
+                checked={editedValues.hasBeans}
+                onChange={handleInputChange}
+              />
+            </label>
+            <label>
+              <h4>Descriptors:</h4>
+              {["Babiest baby", "Certified Thicc Chungus", "That's a damn fine cat", "Let me love you"].map((adjective) => (
+                <label>
+                  <input
+                    type="checkbox"
+                    className="adjective-checkbox"
+                    checked={editedValues.adjectives?.includes(adjective)}
+                    onChange={() => handleAdjectiveChange(adjective)}
+                  />
+                  {adjective}
+                </label>
+              ))}
+            </label>
+            <div className="button-container">
+              <button className="sort-button" onClick={handleSaveClick}>Save</button>
+              <button className="sort-button" onClick={handleCancelClick}>Cancel</button>
+            </div>
           </div>
         </div>
       )}
