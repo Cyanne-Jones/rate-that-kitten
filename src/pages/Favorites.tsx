@@ -101,6 +101,7 @@ const Favorites = () => {
     return counts;
   }, {});
 
+  const allDescriptorsForEdit = [...new Set(favorites.flatMap(favorite => favorite.adjectives || []))];
 
   return (
     <div className="favorites-container">
@@ -278,7 +279,7 @@ const Favorites = () => {
             </label>
             <label>
               <h4>Descriptors:</h4>
-              {["Babiest baby", "Certified Thicc Chungus™", "That's a damn fine cat", "Let me love you", "Freaky & Fuzzy"].map((adjective) => (
+              {allDescriptorsForEdit.map((adjective) => (
                 <label>
                   <input
                     type="checkbox"

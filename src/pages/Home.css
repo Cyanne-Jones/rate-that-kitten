@@ -271,3 +271,19 @@ h1 {
   align-items: center;
   gap: 1rem;
 }
+
+.adjective-input {
+  background-color: #f8d3d3; /* Pastel pink background */
+  border: 1px solid #9b59b6; /* Purple border */
+  color: #9b59b6; /* Purple text */
+  border-radius: 5px; /* Rounded corners */
+  padding: 0.5rem; /* Padding */
+  margin-right: 0.5rem; /* Space between input and button */
+  font-family: 'Playfair Display', serif;
+}
+
+.adjective-input:disabled {
+  background-color: #e0e0e0; /* Gray background */
+  color: #666666; /* Dark gray text */
+  border: 1px solid #bdbdbd; /* Light gray border */
+}

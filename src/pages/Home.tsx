@@ -23,6 +23,8 @@ const Home = () => {
   const confetti = new JSConfetti();
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
+  const [newAdjective, setNewAdjective] = useState('');
+  const [isNewAdjectiveInputEnabled, setIsNewAdjectiveInputEnabled] = useState(true);
 
   const getIsScreenSmall = (): boolean => {
     return window.innerWidth <= 768;
@@ -80,6 +82,21 @@ const Home = () => {
     setSelectedAdjectives((prev) =>
       prev.includes(adjective) ? prev.filter((a) => a !== adjective) : [...prev, adjective]
     );
+  };
+
+  const handleNewAdjectiveChange = (e: any) => {
+    setNewAdjective(e.target.value);
+  };
+
+  const handleAddAdjective = () => {
+    if (newAdjective && !selectedAdjectives.includes(newAdjective)) {
+      setSelectedAdjectives((prev) => [...prev, newAdjective]);
+      setIsNewAdjectiveInputEnabled(false);
+    } else {
+      setSelectedAdjectives((prev) => prev.filter((a) => a !== newAdjective));
+      setIsNewAdjectiveInputEnabled(true);
+      setNewAdjective('');
+    }
   };
 
   const handleFavoriteToggle = () => {
@@ -198,6 +215,17 @@ const Home = () => {
                   /> {adjective}
                 </label>
               ))}
+              <input
+                type="text"
+                placeholder="custom"
+                value={newAdjective}
+                onChange={handleNewAdjectiveChange}
+                className="adjective-input"
+                disabled={!isNewAdjectiveInputEnabled}
+              />
+              <button className="gray-button" type="button" onClick={handleAddAdjective} >
+                {selectedAdjectives.includes(newAdjective) ? 'Remove' : 'Add'}
+              </button>
             </div>
           </div>
         </div>
