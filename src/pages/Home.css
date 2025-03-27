@@ -4,6 +4,12 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .home-container {
+    padding: 2rem;
+  }
+}
+
 h1 {
   color: var(--text-color);
   font-size: 3.5rem;
