@@ -60,6 +60,7 @@
   font-family: 'Playfair Display', serif;
   background-color: #9b59b6; /* Purple background */
   border-radius: 10px; /* Rounded corners */
+  color: white;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border: none;
@@ -176,7 +177,6 @@
   margin-top: 1rem; /* Space above the buttons */
   display: flex; /* Use flexbox for side-by-side layout */
   justify-content: center; /* Center the buttons */
-  color: #f0e9e9;
 }
 
 .edit-form .sort-button {
