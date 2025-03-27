@@ -88,7 +88,7 @@ const Favorites = () => {
 
   return (
     <div className="favorites-container">
-      <h1>Your Favorite Kittens</h1>
+      <h1>Your Rated Kittens</h1>
 
       {/* Buttons for Navigation and Toggle Filters */}
       <div className="button-container">

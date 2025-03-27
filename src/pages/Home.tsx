@@ -209,7 +209,7 @@ const Home = () => {
           Request Another Cat
         </button>
         {favorites.length > 0 && <button className="gray-button">
-          <Link to="/favorites">View Favorites</Link>
+          <Link to="/rated">View Rated Kitties</Link>
         </button>}
       </div>
       {isSmallScreen && <button 
