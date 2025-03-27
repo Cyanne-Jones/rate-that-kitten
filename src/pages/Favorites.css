@@ -169,7 +169,9 @@
 }
 
 .edit-form input[type="number"],
-.edit-form input[type="checkbox"] {
+.filter-container input[type="checkbox"],
+.filter-container input[type="radio"],
+.edit-form input[type="text"] {
   margin-right: 0.5rem; /* Space between input and label */
 }
 

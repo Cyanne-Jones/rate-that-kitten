@@ -10,6 +10,7 @@ const Favorites = () => {
   // State for filters and sorting
   const [filterWouldPet, setFilterWouldPet] = useState<string | null>(null);
   const [filterHasBeans, setFilterHasBeans] = useState<string | null>(null);
+  const [selectedDescriptors, setSelectedDescriptors] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<string>('asc'); // 'asc' for low to high, 'desc' for high to low
   const [showFilters, setShowFilters] = useState<boolean>(false); // State to toggle filter visibility
   const [editingFavorite, setEditingFavorite] = useState<string | null>(null);
@@ -29,7 +30,8 @@ const Favorites = () => {
   const filteredFavorites = favorites.filter(favorite => {
     const wouldPetMatch = filterWouldPet === null || (filterWouldPet === 'yes' ? favorite.wouldPet : !favorite.wouldPet);
     const hasBeansMatch = filterHasBeans === null || (filterHasBeans === 'yes' ? favorite.hasBeans : !favorite.hasBeans);
-    return wouldPetMatch && hasBeansMatch;
+    const descriptorMatch = selectedDescriptors.length === 0 || selectedDescriptors.every(descriptor => favorite.adjectives?.includes(descriptor));
+    return wouldPetMatch && hasBeansMatch && descriptorMatch;
   });
 
   const sortedFavorites = filteredFavorites.sort((a, b) => {
@@ -85,6 +87,14 @@ const Favorites = () => {
         : [...prev.adjectives, adjective],
     }));
   };
+
+  const handleDescriptorChange = (descriptor: string) => {
+    setSelectedDescriptors((prev) =>
+      prev.includes(descriptor) ? prev.filter((d) => d !== descriptor) : [...prev, descriptor]
+    );
+  };
+
+  const allDescriptors = [...new Set(favorites.flatMap(favorite => favorite.adjectives || []))];
 
   return (
     <div className="favorites-container">
@@ -171,6 +181,21 @@ const Favorites = () => {
               </div>
             </div>
           </div>
+
+          <div className="filter-container">
+              <h3>Descriptors:</h3>
+              {allDescriptors.map((descriptor) => (
+                <label key={descriptor}>
+                  <input
+                    type="checkbox"
+                    value={descriptor}
+                    checked={selectedDescriptors.includes(descriptor)}
+                    onChange={() => handleDescriptorChange(descriptor)}
+                  />
+                  {descriptor}
+                </label>
+              ))}
+            </div>
 
           <div className="sort-container">
             <h2>Sort by Cuteness:</h2>
