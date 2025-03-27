@@ -173,6 +173,7 @@ h1 {
   background: #9b59b6;
   box-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
 .cuteness-slider::-moz-range-thumb {
