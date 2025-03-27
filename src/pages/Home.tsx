@@ -21,6 +21,7 @@ const Home = () => {
   const [hasBeans, setHasBeans] = useState<boolean>(false);
   const [selectedAdjectives, setSelectedAdjectives] = useState<string[]>([]);
   const confetti = new JSConfetti();
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const getIsScreenSmall = (): boolean => {
     return window.innerWidth <= 768;
@@ -77,10 +78,12 @@ const Home = () => {
   };
 
   const handleFavoriteToggle = () => {
+    
     if (isFavorited) {
       removeFavorite(catImage!.url);
       resetState();
     } else {
+      setIsAnimating(true);
       confetti.addConfetti({
         confettiColors: ['#FFB5C5', '#c580c5', '#FFC0CB', '#9b59b6'],
         confettiRadius: 6,
@@ -93,6 +96,9 @@ const Home = () => {
         hasBeans, 
         adjectives: selectedAdjectives 
       });
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 1500);
       resetState();
     }
   };
@@ -146,7 +152,7 @@ const Home = () => {
 
             {!isSmallScreen && <button 
               onClick={handleFavoriteToggle} 
-              className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
+              className={`favorite-button ${isFavorited ? 'favorited' : ''} ${isAnimating ? 'animate' : ''}`}
             >
               {isFavorited ? '❤️' : '🤍'}
             </button>}
@@ -204,7 +210,7 @@ const Home = () => {
       </div>
       {isSmallScreen && <button 
           onClick={handleFavoriteToggle} 
-          className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
+          className={`favorite-button ${isFavorited ? 'favorited' : ''} ${isAnimating ? 'animate' : ''}`}
       >
         {isFavorited ? '❤️' : '🤍'}
       </button>}

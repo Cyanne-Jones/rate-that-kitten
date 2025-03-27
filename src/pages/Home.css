@@ -112,7 +112,23 @@ h1 {
   100% {
     text-shadow: 0 0 20px rgba(233, 30, 99, 1), 0 0 30px rgba(233, 30, 99, 0.7);
   }
-} 
+}
+
+.favorite-button.animate {
+  animation: spinAndSwell 1.5s infinite;
+}
+
+@keyframes spinAndSwell {
+  0% {
+    transform: rotate(0deg) scale(1.5);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(720deg) scale(1.5);
+  }
+}
 
 .gray-button {
   display: inline-block;
