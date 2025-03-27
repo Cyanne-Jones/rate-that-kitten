@@ -69,7 +69,11 @@ const Home = () => {
     setSelectedAdjectives([]);
   }
 
-  const isFavorited = catImage ? favorites.some(fav => fav.url === catImage.url) : false;
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  useEffect(() => {
+    setIsFavorited(catImage ? favorites.some(fav => fav.url === catImage.url) : false);
+  }, [catImage, favorites]);
 
   const handleAdjectiveChange = (adjective: string) => {
     setSelectedAdjectives((prev) =>
@@ -98,7 +102,7 @@ const Home = () => {
       });
       setTimeout(() => {
         setIsAnimating(false);
-      }, 1500);
+      }, 1000);
       resetState();
     }
   };
