@@ -280,6 +280,7 @@ h1 {
   padding: 0.5rem; /* Padding */
   margin-right: 0.5rem; /* Space between input and button */
   font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .adjective-input:disabled {
