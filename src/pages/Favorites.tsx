@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import './Favorites.css';
 import useFavoriteStore from '../useFavoriteStore';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Favorites = () => {
   const { favorites, removeFavorite, updateFavorite } = useFavoriteStore();
@@ -10,9 +10,11 @@ const Favorites = () => {
   // State for filters and sorting
   const [filterWouldPet, setFilterWouldPet] = useState<string | null>(null);
   const [filterHasBeans, setFilterHasBeans] = useState<string | null>(null);
+  const [selectedDescriptors, setSelectedDescriptors] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<string>('asc'); // 'asc' for low to high, 'desc' for high to low
   const [showFilters, setShowFilters] = useState<boolean>(false); // State to toggle filter visibility
   const [editingFavorite, setEditingFavorite] = useState<string | null>(null);
+  const navigate = useNavigate();
   const [editedValues, setEditedValues] = useState<{
     cuteness: number;
     wouldPet: boolean;
@@ -29,7 +31,8 @@ const Favorites = () => {
   const filteredFavorites = favorites.filter(favorite => {
     const wouldPetMatch = filterWouldPet === null || (filterWouldPet === 'yes' ? favorite.wouldPet : !favorite.wouldPet);
     const hasBeansMatch = filterHasBeans === null || (filterHasBeans === 'yes' ? favorite.hasBeans : !favorite.hasBeans);
-    return wouldPetMatch && hasBeansMatch;
+    const descriptorMatch = selectedDescriptors.length === 0 || selectedDescriptors.every(descriptor => favorite.adjectives?.includes(descriptor));
+    return wouldPetMatch && hasBeansMatch && descriptorMatch;
   });
 
   const sortedFavorites = filteredFavorites.sort((a, b) => {
@@ -86,6 +89,19 @@ const Favorites = () => {
     }));
   };
 
+  const handleDescriptorChange = (descriptor: string) => {
+    setSelectedDescriptors((prev) =>
+      prev.includes(descriptor) ? prev.filter((d) => d !== descriptor) : [...prev, descriptor]
+    );
+  };
+
+  const allDescriptors = [...new Set(favorites.flatMap(favorite => favorite.adjectives || []))];
+  const descriptorCounts = allDescriptors.reduce((counts: { [key: string]: number }, descriptor) => {
+    counts[descriptor] = favorites.filter(favorite => favorite.adjectives?.includes(descriptor)).length;
+    return counts;
+  }, {});
+
+
   return (
     <div className="favorites-container">
       <h1>Your Rated Kittens</h1>
@@ -98,9 +114,9 @@ const Favorites = () => {
         >
           {showFilters ? 'Hide Filters' : 'Show Filters'}
         </button>}
-        <button className="gray-button">
-          <a href="/">Back to Home</a>
-        </button>
+        <button className="gray-button"
+          onClick={() => navigate('/')}
+        >Back to Home</button>
       </div>
 
       {/* Filter and Sort Options */}
@@ -171,6 +187,21 @@ const Favorites = () => {
               </div>
             </div>
           </div>
+
+          <div className="filter-container">
+              <h2>Descriptors:</h2>
+              {allDescriptors.map((descriptor) => (
+                <label key={descriptor}>
+                  <input
+                    type="checkbox"
+                    value={descriptor}
+                    checked={selectedDescriptors.includes(descriptor)}
+                    onChange={() => handleDescriptorChange(descriptor)}
+                  />
+                  {descriptor} ({descriptorCounts[descriptor]})
+                </label>
+              ))}
+            </div>
 
           <div className="sort-container">
             <h2>Sort by Cuteness:</h2>
@@ -268,9 +299,9 @@ const Favorites = () => {
       )}
       {sortedFavorites.length === 0 ? (
             <p>No favorite kittens yet!</p>
-        ) : (<button className="gray-button">
-        <Link to="/">Back to Home</Link>
-      </button>)}
+        ) : (<button className="gray-button"
+          onClick={() => navigate('/')}
+        >Back to Home</button>)}
     </div>
     
   );

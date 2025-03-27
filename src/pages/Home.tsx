@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './Home.css';
 import useFavoriteStore from '../useFavoriteStore';
 import JSConfetti from 'js-confetti';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface CatImage {
   id: string;
@@ -22,6 +22,7 @@ const Home = () => {
   const [selectedAdjectives, setSelectedAdjectives] = useState<string[]>([]);
   const confetti = new JSConfetti();
   const [isAnimating, setIsAnimating] = useState(false);
+  const navigate = useNavigate();
 
   const getIsScreenSmall = (): boolean => {
     return window.innerWidth <= 768;
@@ -208,9 +209,10 @@ const Home = () => {
         >
           Request Another Cat
         </button>
-        {favorites.length > 0 && <button className="gray-button">
-          <Link to="/rated">View Rated Kitties</Link>
-        </button>}
+        {favorites.length > 0 && <button className="gray-button"
+          onClick={() => navigate('/rated')}
+        >View Rated Kitties</button>}
+        
       </div>
       {isSmallScreen && <button 
           onClick={handleFavoriteToggle} 
