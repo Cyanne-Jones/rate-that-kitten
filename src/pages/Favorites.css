@@ -140,6 +140,13 @@
   border-radius: 10px;
 }
 
+@media (max-width: 768px) {
+  .edit-form {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
 .edit-form h3 {
   font-size: 1.5rem; /* Increased font size */
   margin-bottom: 1rem;
