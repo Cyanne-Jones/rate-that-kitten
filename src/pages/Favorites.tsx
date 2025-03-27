@@ -247,7 +247,7 @@ const Favorites = () => {
             </label>
             <label>
               <h4>Descriptors:</h4>
-              {["Babiest baby", "Certified Thicc Chungus", "That's a damn fine cat", "Let me love you"].map((adjective) => (
+              {["Babiest baby", "Certified Thicc Chungus™", "That's a damn fine cat", "Let me love you", "Freaky & Fuzzy"].map((adjective) => (
                 <label>
                   <input
                     type="checkbox"
