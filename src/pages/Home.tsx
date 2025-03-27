@@ -21,6 +21,26 @@ const Home = () => {
   const [hasBeans, setHasBeans] = useState<boolean>(false);
   const [selectedAdjectives, setSelectedAdjectives] = useState<string[]>([]);
   const confetti = new JSConfetti();
+
+  const getIsScreenSmall = (): boolean => {
+    return window.innerWidth <= 768;
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(getIsScreenSmall());
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check on component mount
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(getIsScreenSmall());
+
   useEffect(() => {
     const fetchCatImage = async () => {
       try {
@@ -124,12 +144,12 @@ const Home = () => {
               className="cuteness-slider"
             />
 
-            <button 
+            {!isSmallScreen && <button 
               onClick={handleFavoriteToggle} 
               className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
             >
               {isFavorited ? '❤️' : '🤍'}
-            </button>
+            </button>}
           </div>
 
           
@@ -171,14 +191,22 @@ const Home = () => {
           </div>
         </div>
       )}
-      <button 
-        onClick={fetchNewCatImage} 
-        className={`${isFavorited && 'request-another-cat-active'} gray-button`}
+      <div className="button-container">
+        <button 
+          onClick={fetchNewCatImage} 
+          className={`${isFavorited && 'request-another-cat-active'} gray-button`}
+        >
+          Request Another Cat
+        </button>
+        {favorites.length > 0 && <button className="gray-button">
+          <Link to="/favorites">View Favorites</Link>
+        </button>}
+      </div>
+      {isSmallScreen && <button 
+          onClick={handleFavoriteToggle} 
+          className={`favorite-button ${isFavorited ? 'favorited' : ''}`}
       >
-        Request Another Cat
-      </button>
-      {favorites.length > 0 && <button className="gray-button">
-        <Link to="/favorites">View Favorites</Link>
+        {isFavorited ? '❤️' : '🤍'}
       </button>}
     </div>
   );

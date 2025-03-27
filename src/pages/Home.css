@@ -219,6 +219,9 @@ h1 {
   .cat-image-container {
     margin-right: 0;
   }
+  h1 {
+    font-size: 2rem;
+  }
 }
 
 .input-container {
@@ -236,4 +239,11 @@ h1 {
 .request-another-cat-active {
   animation: pulse 1s infinite;
   background-color: rgba(155, 89, 182, 0.5);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
