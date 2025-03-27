@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import './Favorites.css';
 import useFavoriteStore from '../useFavoriteStore';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Favorites = () => {
   const { favorites, removeFavorite, updateFavorite } = useFavoriteStore();
@@ -14,6 +14,7 @@ const Favorites = () => {
   const [sortOrder, setSortOrder] = useState<string>('asc'); // 'asc' for low to high, 'desc' for high to low
   const [showFilters, setShowFilters] = useState<boolean>(false); // State to toggle filter visibility
   const [editingFavorite, setEditingFavorite] = useState<string | null>(null);
+  const navigate = useNavigate();
   const [editedValues, setEditedValues] = useState<{
     cuteness: number;
     wouldPet: boolean;
@@ -113,9 +114,9 @@ const Favorites = () => {
         >
           {showFilters ? 'Hide Filters' : 'Show Filters'}
         </button>}
-        <button className="gray-button">
-          <a href="/">Back to Home</a>
-        </button>
+        <button className="gray-button"
+          onClick={() => navigate('/')}
+        >Back to Home</button>
       </div>
 
       {/* Filter and Sort Options */}
@@ -188,7 +189,7 @@ const Favorites = () => {
           </div>
 
           <div className="filter-container">
-              <h3>Descriptors:</h3>
+              <h2>Descriptors:</h2>
               {allDescriptors.map((descriptor) => (
                 <label key={descriptor}>
                   <input
@@ -298,9 +299,9 @@ const Favorites = () => {
       )}
       {sortedFavorites.length === 0 ? (
             <p>No favorite kittens yet!</p>
-        ) : (<button className="gray-button">
-        <Link to="/">Back to Home</Link>
-      </button>)}
+        ) : (<button className="gray-button"
+          onClick={() => navigate('/')}
+        >Back to Home</button>)}
     </div>
     
   );
